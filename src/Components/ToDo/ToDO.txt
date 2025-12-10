@@ -1,0 +1,260 @@
+UNUSED CODE
+
+*{
+    /* margin: 5px;
+}
+.AddToList-item {
+    display: inline-grid;
+    border: 2px solid gray;
+    padding: 17px;
+    margin: 35px;
+    margin: 20px 0px 0px 300px;
+}
+
+.AddToList-item input {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    width: 312px;
+    outline: none;
+    border: 1px solid green;
+    /* background-color: rgb(0, 0, 0); */
+/* color: black;
+
+
+}
+
+.AddToList-item button {
+    border-radius: 6px;
+    padding: 8px;
+    background-color: green;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.list-itemsw li {
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 600;
+    /* border: 1px solid skyblue; */
+
+
+
+/* *{
+    margin: 5px;
+}
+.AddToList-item {
+    display: inline-grid;
+    border: 2px solid gray;
+    padding: 17px;
+    margin: 35px;
+    margin: 20px 0px 0px 300px;
+}
+
+.AddToList-item input {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    width: 312px;
+    outline: none;
+    border: 1px solid green;
+    /* background-color: rgb(0, 0, 0); */
+/* color: black;
+
+
+} */
+/* 
+.AddToList-item button {
+    border-radius: 6px;
+    padding: 8px;
+    background-color: green;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.list-itemsw li {
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 600;
+    /* border: 1px solid skyblue; */
+/* background-color: green;
+    border-radius: 6px;
+    width: fit-content;
+    color: white;
+    padding: 12px;
+    margin: 15px 0px 0px 15px;
+} */
+
+/* .To-list button {
+    padding: 15px;
+    width: 135px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.del-btn {
+    background-color: red;
+    color: white;
+
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.To-list {
+    margin: 75px 0px 0px 300px;
+}
+
+.list-items ul {
+    width: fit-content;
+    margin-left: 800px;
+    margin-top: -62px;
+} */
+
+/* /* .nav-container {
+    display: flex;
+    justify-content: space-between;
+} */
+/*  
+.search-bar{
+    display: flex;
+    align-items: center;
+} */
+*/
+/* .search-bar input{
+        border-radius: 100px; */
+/* outline: none; */
+/* border: none;
+    outline: 1px solid skyblue;
+    padding: 18px;
+    font-size: 16px;
+    width: 500px;
+
+}
+.add-icon{
+    width: max-content;
+}
+.add-icon img{
+    margin-left: 25px;
+    width: 35px;
+}
+textarea .txt-area{
+    z-index: 1;
+}
+.colors-note .span{
+       background-color: orange;
+    width: 27px;
+    
+    height: 26px;
+    text-align: center;
+    margin-left: 25px;
+    border-radius: 100%
+}
+.colors-note .span1{
+  background-color: skyblue;
+    width: 27px;
+    height: 26px;
+    text-align: center;
+    margin-left: 25px;
+    border-radius: 100%
+} */
+/* .colors-note .span2{
+  background-color: lightcoral;
+    width: 27px;
+    height: 26px;
+    text-align: center;
+    margin-left: 25px;
+    border-radius: 100%
+}
+.colors-note .span3{
+  background-color: tomato;
+    width: 27px;
+    height: 26px;
+    text-align: center;
+    margin-left: 25px;
+    border-radius: 100%
+}
+.colors-note{
+    display: inline-block;
+}
+.note-pad p{
+       display: inline-block;
+    width: max-content;
+    position: absolute;
+    left: 14%;
+    top: 10%;
+
+
+}
+.note-pad textarea{
+    background-color: lightcoral;
+    position: absolute;
+    left: 6%;
+    top: 19%; */
+/* margin-bottom: 500px; */
+/* height: 35%;
+    width: 42%;
+    padding: 11px 14px 0px 16px;
+    overflow-y: hidden;
+}
+.txt-area{
+    height: 300px;
+    width: 350px;
+    padding: 11px 14px 0px 16px;
+    overflow-y: hidden;
+    
+}
+.logo h4{
+    font-size: 26px;
+}
+.login h6{
+    font-size: 20px;
+}
+
+textarea#\32{
+    font-size: 21px;
+    z-index: 2;
+}
+textarea.txt-area{
+    font-size: 21px;
+}
+.save-btn{
+          position: absolute;
+          z-index: 2;
+    left: 43%;
+    top: 49%;
+    width: 76px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    background-color: white;
+    border-radius: 30px;
+}
+.search-icon{
+    top: 4%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 70%;
+
+}
+
+.light{
+    background-color: white;
+    padding: 5px;
+}
+/* .dark{
+    background-color:black;
+    color: white;
+    padding: 5px;
+}
