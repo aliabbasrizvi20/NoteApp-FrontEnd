@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axiosClient from "../api/axiosClient";
 
 export default function SignUp() {
   const nav = useNavigate();
@@ -19,10 +20,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:3000/auth/register",
-        formData
-      );
+      const res = await axiosClient.post("/auth/register", formData);
       setResMessage(res.data.message);
 
       if (res.data.success) {

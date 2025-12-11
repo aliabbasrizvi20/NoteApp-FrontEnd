@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Logins.css";
+import axiosClient from "../api/axiosClient";
 export default function Login() {
   const nav = useNavigate();
   const [userForm, setUserForm] = useState({ email: "", password: "" });
@@ -12,17 +13,17 @@ export default function Login() {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post("http://localhost:3000/auth/login", userForm);
-    // Show message from backend
+    const res = await axiosClient.post("/auth/login", userForm);
+    
     setResData(res.data.message);
 
     if (res.data.success) {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      nav("/"); // navigate to home
+      nav("/"); 
     }
   } catch (err) {
-    // Access error message properly
+  
     if (err.response && err.response.data && err.response.data.message) {
       setResData(err.response.data.message);
     } else {
