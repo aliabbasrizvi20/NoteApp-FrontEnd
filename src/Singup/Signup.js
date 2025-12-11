@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const nav = useNavigate();
-
+  const [resMessage, setResMessage] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,13 +23,17 @@ export default function SignUp() {
         "http://localhost:3000/auth/register",
         formData
       );
-      // console.log(res);
-      alert(res.data.message);
+      setResMessage(res.data.message);
+
       if (res.data.success) {
-        nav("/login");
+        setTimeout(() => nav("/login"), 1000);
       }
     } catch (err) {
-      alert("Error");
+      if (err.response && err.response.data && err.response.data.message) {
+        setResMessage(err.response.data.message);
+      } else {
+        setResMessage("Something went wrong. Please try again.");
+      }
     }
   };
   return (
@@ -45,12 +49,14 @@ export default function SignUp() {
                 name="name"
                 placeholder="Enter your name"
                 onChange={onHandleChange}
+                required
               />
               <br></br>
               <input
                 name="email"
                 placeholder="Enter your email"
                 onChange={onHandleChange}
+                required
               />
               <br></br>
               <input
@@ -58,6 +64,7 @@ export default function SignUp() {
                 type="password"
                 placeholder="Enter your password"
                 onChange={onHandleChange}
+                required
               />
               <br></br>
               <button>Signup</button>
@@ -65,6 +72,7 @@ export default function SignUp() {
             <p>
               Already registered? <Link to="/login">LogIn</Link>
             </p>
+            <h6 id="signup-res">{resMessage}</h6>
           </div>
         </form>
       </div>

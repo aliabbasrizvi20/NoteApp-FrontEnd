@@ -5,26 +5,32 @@ import "./Logins.css";
 export default function Login() {
   const nav = useNavigate();
   const [userForm, setUserForm] = useState({ email: "", password: "" });
+  const [resData, setResData]=useState("");
   const onHandleChange = (e) => {
     setUserForm({ ...userForm, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://localhost:3000/auth/login",
-        userForm
-      );
-      alert(res.data.message);
-      if (res.data.success) {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        nav("/notethat");
-      }
-    } catch (err) {
-      alert("Invalid Creds");
+  e.preventDefault();
+  try {
+    const res = await axios.post("http://localhost:3000/auth/login", userForm);
+    // Show message from backend
+    setResData(res.data.message);
+
+    if (res.data.success) {
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      nav("/"); // navigate to home
     }
-  };
+  } catch (err) {
+    // Access error message properly
+    if (err.response && err.response.data && err.response.data.message) {
+      setResData(err.response.data.message);
+    } else {
+      setResData("Something went wrong!");
+    }
+  }
+};
+
   return (
     <div className="login-whole-container">
       <div className="login-container">
@@ -35,6 +41,7 @@ export default function Login() {
               name="email"
               placeholder="Enter your email"
               onChange={onHandleChange}
+              required
             />
             <br></br>
             <input
@@ -42,6 +49,7 @@ export default function Login() {
               type="password"
               placeholder="Enter your password"
               onChange={onHandleChange}
+              required
             />
             <br></br>
             <button>LogIn</button>
@@ -49,6 +57,7 @@ export default function Login() {
           <p>
             Haven't created an account? <Link to="/signUp">SignUp</Link>
           </p>
+            <h4 id="log-res">{resData}</h4>
         </form>
       </div>
     </div>

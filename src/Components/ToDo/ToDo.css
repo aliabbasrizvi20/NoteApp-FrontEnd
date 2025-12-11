@@ -248,6 +248,7 @@ html {
   /* height: 120px; */
   border: none;
   height: 140px;
+  outline: none;
   resize: none;
   padding: 10px;
   font-size: 16px;

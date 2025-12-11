@@ -14,7 +14,6 @@ import nightMode from "../ToDo/Assets/moon-and-stars.png";
 import axiosClient from "../../api/axiosClient";
 
 export default function ToDoApp() {
-
   const [itemlist, setItemList] = useState([]);
   const [noteColors, setNoteColors] = useState(false);
   const [choosenColor, setChoosenColor] = useState("");
@@ -26,18 +25,10 @@ export default function ToDoApp() {
   const [textItalic, setTextItalic] = useState(false);
   const [editId, setEditId] = useState(false);
   const [textUnderline, setTextUnderline] = useState(false);
-  const [deletedNote, setDeletedNote] = useState([]);
-  const [showDeletedNotes, setShowDeletedNotes] = useState(false);
-
-  const [delforever, setDelForever] = useState(false);
-  const [noDelNotes, setNoDelNotes] = useState(false);
   const [isMode, setIsMode] = useState("");
-  //  const [isLight,setIsLight]=useState("");
-  const [pinnedList] = useState([]);
   const [noteIsLight, setNoteIsLight] = useState("");
   const [navUnderline, setNavUnderline] = useState("");
   const [userNameTheme, setUserNameTheme] = useState(false);
-
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
@@ -54,18 +45,18 @@ export default function ToDoApp() {
     if (!user) {
       localStorage.setItem("guestNotes", JSON.stringify(itemlist));
     }
-  }, [itemlist,user]);
+  }, [itemlist, user]);
 
   const getNotes = async () => {
     const notes = await axiosClient.get("/note");
     setItemList(notes.data.notes);
   };
   const deleteNote = async (id) => {
-     await axiosClient.delete(`note/${id}`);
+    await axiosClient.delete(`note/${id}`);
     getNotes();
   };
   const onAddNote = async (body) => {
-   await axiosClient.post("/note", body);
+    await axiosClient.post("/note", body);
     getNotes();
   };
 
@@ -76,22 +67,17 @@ export default function ToDoApp() {
   }, [user]);
 
   const onAddList = () => {
-    setShowDeletedNotes(false);
     setNoteColors(true);
     setNotesData("");
     setChoosenColor("");
     setEditIndex(null);
-    setNoDelNotes(false);
     setEditId(null);
   };
 
   const onDeleteList = (id, index) => {
-    if (user) {
-      // Logged-in user — delete via API
-      if (!id) return; // safety check
+    if (user && id) {
       deleteNote(id);
     } else {
-      // Guest user — delete by index
       setItemList((prev) => prev.filter((_, i) => i !== index));
     }
   };
@@ -113,9 +99,6 @@ export default function ToDoApp() {
       alert("Please write something...");
       return;
     }
-    // else{
-    //   alert("Saved")
-    // }
 
     const newNote = {
       text: notesData,
@@ -127,14 +110,12 @@ export default function ToDoApp() {
     };
 
     if (user) {
-      // LOGGED IN USER
       if (editId !== null) {
         callEditApi(editId);
       } else {
         onAddNote(newNote);
       }
     } else {
-      // GUEST USER — FIXED
       if (editIndex !== null) {
         setItemList((prev) => {
           const updated = [...prev];
@@ -171,7 +152,6 @@ export default function ToDoApp() {
   };
 
   const getNotesList = () => {
-
     const pinnedList = itemlist?.filter((item) => item.isPinned);
     const nonPinnedList = itemlist?.filter((item) => !item.isPinned);
     return [...pinnedList, ...nonPinnedList];
@@ -206,10 +186,6 @@ export default function ToDoApp() {
   const onUnderlineDoubleClick = () => {
     setTextUnderline(false);
   };
-  const onNoDelClick = () => {
-    setDelForever(false);
-  };
-
 
   const onPinNotes = (index) => {
     setItemList((prev) => {
@@ -221,21 +197,11 @@ export default function ToDoApp() {
       updated[index] = updatedNote;
       return updated;
     });
-   
   };
   const onUnPinNotes = (index) => {
     console.log(index);
   };
-  const onDeleteForever = () => {
-    setDelForever(true);
-  };
-  const onDelNoteForever = (index) => {
-    // console.log(index);
-    setDeletedNote((prevDeleted) =>
-      prevDeleted.filter((_, delIndex) => index !== delIndex)
-    );
-    setDelForever(false);
-  };
+
   const setDarkMode = () => {
     setIsMode("isMode");
     setUserNameTheme(true);
@@ -259,11 +225,11 @@ export default function ToDoApp() {
       className={`parent-container`}
       style={{ backgroundColor: "whitesmoke" }}
     >
-      {/* <div className="login">
-               <Link to="/login"><button>LogIn</button></Link> 
-            </div> */}
       <div className={`container ${isMode}`}>
-        <div className={`nav-container ${navUnderline}`} style={{backgroundColor: isMode? "black" : "whitesmoke"}}>
+        <div
+          className={`nav-container ${navUnderline}`}
+          style={{ backgroundColor: isMode ? "black" : "whitesmoke" }}
+        >
           <div className={`logo `}>
             <h4 style={{ color: isMode ? "white" : "black" }}>Notethat.</h4>
           </div>
@@ -286,7 +252,10 @@ export default function ToDoApp() {
           <div className="dropdown">
             <img src={profile} alt="" />
             {user ? <p>{user.name} </p> : ""}
-            <div className="dropdown-content" style={{backgroundColor : isMode? "black" :"white"}}>
+            <div
+              className="dropdown-content"
+              style={{ backgroundColor: isMode ? "black" : "white" }}
+            >
               <div className={`logins-btn  `}>
                 {user ? (
                   <>
@@ -300,7 +269,6 @@ export default function ToDoApp() {
                     <button className="login-btn-btn">LogIn</button>
                   </Link>
                 )}
-               
               </div>
               <div className={`modes ${isMode} `}>
                 <div className={`light ${isMode}`}>
@@ -320,7 +288,6 @@ export default function ToDoApp() {
               itemlist.length === 0
                 ? "none"
                 : "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-               
           }}
         >
           <div className="add-note-icon">
@@ -370,7 +337,6 @@ export default function ToDoApp() {
             <div className="modal-overlay">
               <div className={`note-modal ${noteIsLight} ${isMode}`}>
                 <div className="back-btns">
-                  {/* <button onClick={()=>setShowNotePad(false)}>X</button> */}
                   <img
                     src={CloseIcon}
                     onClick={() => setShowNotePad(false)}
@@ -415,7 +381,6 @@ export default function ToDoApp() {
                     <button className="save-btn" onClick={onSaveNote}>
                       Save
                     </button>
-                    {/* <button className="back-btn" onClick={() => setShowNotePad(false)}>Back</button> */}
                   </div>
                 </div>
               </div>
@@ -423,49 +388,6 @@ export default function ToDoApp() {
           )}
 
           <div className="notes-container">
-            {pinnedList
-              .filter((el) =>
-                el.text.toLowerCase().includes(searchNoteData.toLowerCase())
-              )
-              .map((element, index) => (
-                <div
-                  className="note-card"
-                  key={index}
-                  style={{ backgroundColor: element.color }}
-                >
-                  <div className="pin-btn">
-                    <img
-                      src={element.isPinned ? pin : unpin} alt="PinnedNote"
-                      onClick={() => onPinNotes(index)}
-                      onDoubleClick={() => onUnPinNotes(index)}
-                    />
-                    {/* <button onClick={()=>onPinNotes(index)}>{element.isPinned ? 'UNPIN' : 'PIN'}</button> */}
-                  </div>
-                  <textarea
-                    value={element.text}
-                    className={`${element.bold ? "setBold" : ""} 
-                    ${element.italic ? "setItalic" : ""} 
-                    ${element.underline ? "Underline" : ""}`}
-                    readOnly
-                  />
-
-                  <div className="note-actions">
-                    {/* <button onClick={() => onEditList(index)}>Edit</button>
-                                <button onClick={() => onDeleteList(index)}></button> */}
-                    <img
-                      src={Edit}
-                      onClick={() => onEditList(element._id, index)}
-                      alt=""
-                    />
-
-                    <img
-                      src={Del}
-                      onClick={() => onDeleteList(null, index)}
-                      alt=""
-                    />
-                  </div>
-                </div>
-              ))}
             {getNotesList()
               .filter((el) =>
                 el.text.toLowerCase().includes(searchNoteData.toLowerCase())
@@ -478,11 +400,11 @@ export default function ToDoApp() {
                 >
                   <div className="pin-btn">
                     <img
-                      src={element.isPinned ? pin : unpin} alt="pinNote"
+                      src={element.isPinned ? pin : unpin}
+                      alt="PinnedNote"
                       onClick={() => onPinNotes(index)}
                       onDoubleClick={() => onUnPinNotes(index)}
                     />
-                   
                   </div>
                   <textarea
                     value={element.text}
@@ -493,7 +415,6 @@ export default function ToDoApp() {
                   />
 
                   <div className="note-actions">
-                   
                     <img
                       src={Edit}
                       onClick={() => onEditList(element._id, index)}
@@ -502,77 +423,15 @@ export default function ToDoApp() {
 
                     <img
                       src={Del}
-                      onClick={() => onDeleteList(element._id)}
-                      alt=""
+                      onClick={() => onDeleteList(element._id, index)}
+                      alt="Delete"
                     />
                   </div>
                 </div>
               ))}
           </div>
         </div>
-        <div className="deleted-note-section">
-          {showDeletedNotes && (
-            <>
-              <div className="deleted-notes">
-                {/* <div className="heading">
-                        <h4>Deleted Notes</h4>
-                    </div> */}
-                <div className="delll">
-                  <h4>Deleted Notes</h4>
-                </div>
-                <div className="delete-list">
-                  {deletedNote.map((element, index) => {
-                    return (
-                      <>
-                        <div className="del" key={index}>
-                          <textarea
-                            value={element.text}
-                            style={{ backgroundColor: element.color }}
-                            className={`${element.bold ? "setBold" : ""} 
-                    ${element.italic ? "setItalic" : ""} 
-                    ${element.underline ? "Underline" : ""}`}
-                          />
-                          <div className="del-btn">
-                            <img src={Del} alt="" onClick={onDeleteForever} />
-                          </div>
-
-                          {delforever && (
-                            <div className="modal-overlay">
-                              <div
-                                className="modal-box"
-                                style={{ backgroundColor: element.color }}
-                              >
-                                <div className="modal-message">
-                                  Are you sure you want to delete notes?
-                                </div>
-                                <div className="modal-buttons">
-                                  <button onClick={onNoDelClick}>No</button>
-                                  <button
-                                    onClick={() => onDelNoteForever(index)}
-                                  >
-                                    Yes
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </>
-                    );
-                  })}
-                </div>
-              </div>{" "}
-            </>
-          )}{" "}
-        </div>
-
-        <div className="no-notes-section">
-          {noDelNotes && (
-            <p>You have zero notes... create one to get started</p>
-          )}
-        </div>
       </div>
-     
     </div>
   );
 }
