@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./Logins.css";
 import axiosClient from "../api/axiosClient";
 export default function Login() {
