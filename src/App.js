@@ -1,10 +1,10 @@
 import './style.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import ToDoApp from './Components/ToDo/ToDoApp'
 
-import DeletedNotes from './Components/ToDo/DeletedNotes'
+
 import Signup from './Singup/Signup'
 import Logins from './Logins/Logins'
+import ToDoApp from './Components/ToDo/ToDoApp'
 
 export default function MyApp() {
   return (
@@ -12,9 +12,8 @@ export default function MyApp() {
     
     <BrowserRouter>
     <Routes>
-        <Route path='/todo' element={<ToDoApp/>}/>
-     
-            <Route path='/DeletedNotes' element={<DeletedNotes/>}/>
+
+        <Route path='/' element={<ToDoApp/>}/>
        <Route path="/signup" element={<Signup />} />
        <Route path='/login' element ={<Logins/>}/>
      

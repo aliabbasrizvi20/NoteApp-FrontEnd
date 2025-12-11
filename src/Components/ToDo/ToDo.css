@@ -1,325 +1,321 @@
-/* Reset */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     */
-     
-     font-family: math;
+
+
+  font-family: math;
 }
 
-/* Theme */
+
 .parent-container.light {
-    background-color: whitesmoke;
-    color: #000000;
+  background-color: whitesmoke;
+  color: #000000;
 }
 
 .back-btns {
-    text-align: right;
-    margin-bottom: 5px;
+  text-align: right;
+  margin-bottom: 5px;
 }
 
 .decoration-txt button {
-    margin-right: 12px;
-    background: none;
+  margin-right: 12px;
+  background: none;
 }
 
 .pin-btn {
-    text-align: right;
+  text-align: right;
 }
 
 .pin-btn img {
-    width: 25px;
-    cursor: pointer;
+  width: 25px;
+  cursor: pointer;
 }
 
 .back-btns button {
-    cursor: pointer;
-    border: none;
-    color: white;
-    font-weight: 700;
-    border: 1px solid black;
-    background-color: #000;
-    padding: 2px;
-    font-size: 15px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: 700;
+  border: 1px solid black;
+  background-color: #000;
+  padding: 2px;
+  font-size: 15px;
 }
 
 .parent-container.dark {
-    background-color: #121212;
-    color: #ffffff;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 /* Navbar */
 .nav-container {
-    display: flex;
-    background: inherit;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    
+  display: flex;
+  background: inherit;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
 }
 
 .logo h4 {
-    color: #362424;
-    font-size: 26px;
+  color: #362424;
+  font-size: 26px;
 }
 
 .login h6 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 /* Sear */
 .search-bar {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
 
 .search-bar input {
-    width: 100%;
-    padding: 12px 40px 12px 16px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    outline: none;
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
 }
 
 .search-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 /* Add Icon */
 .add-icon {
-    margin: 20px;
+  margin: 20px;
 }
 
 .add-icon img {
-    width: 40px;
-    cursor: pointer;
-    margin: 25px;
+  width: 40px;
+  cursor: pointer;
+  margin: 25px;
 }
 
 /* Colors */
 .colors-note {
-    display: flex;
-    gap: 10px;
-    margin: 15px;
-    margin-left: 55px;
+  display: flex;
+  gap: 10px;
+  margin: 15px;
+  margin-left: 55px;
 }
 
-.colors-note>div {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
+.colors-note > div {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .span {
-    background-color: orange;
+  background-color: orange;
 }
 
 .span1 {
-    background-color: skyblue;
+  background-color: skyblue;
 }
 
 .span2 {
-    background-color: lightcoral;
+  background-color: lightcoral;
 }
 
 .span3 {
-    background-color: lightpink;
+  background-color: lightpink;
 }
 
 .span4 {
-    background-color: thistle;
+  background-color: thistle;
 }
 
 .span5 {
-    background-color: springgreen;
+  background-color: springgreen;
 }
 
 .span6 {
-    background-color: lightsalmon;
+  background-color: lightsalmon;
 }
 
 .span7 {
-    background-color: khaki;
+  background-color: khaki;
 }
 
 .note-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .back-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: #282121;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #282121;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
 }
-
 
 /* Modal */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .note-modal {
-    background: #fff;
-    padding: 20px;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 8px;
-    position: relative;
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
 }
 
 .note-modal textarea {
-    width: 100%;
-    height: 240px;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    resize: none;
-    border: none;
-    outline: none;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 240px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  resize: none;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
 }
 
 /* Buttons */
 .save-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: green;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 /* Notes Display */
 .notes-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-    margin: 10px;
-    border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  margin: 10px;
+  border-radius: 30px;
 }
 
-
 .note-card {
-    width: 100%;
-    max-width: 300px;
-    padding: 15px;
-    border-radius: 10px;
-    position: relative;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
 }
 
 .note-actions img {
-    width: 25px;
-    cursor: pointer;
+  width: 25px;
+  cursor: pointer;
 }
 
 .note-card textarea {
-    width: 100%;
-    overflow: hidden;
-    /* height: 120px; */
-    border: none;
-    height: 140px;
-    resize: none;
-    padding: 10px;
-    font-size: 16px;
-    background: transparent;
-    color: #000;
+  width: 100%;
+  overflow: hidden;
+  /* height: 120px; */
+  border: none;
+  height: 140px;
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+  background: transparent;
+  color: #000;
 }
 
 .note-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .note-actions button {
-    padding: 5px 10px;
-    border: none;
-    background-color: #222;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  background-color: #222;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Theme Button */
 .theme-toggle {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .theme-btn {
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #333;
-    color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .search-bar {
-        width: 100%;
-        margin: 10px 0;
-    }
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
 
-    .notes-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .notes-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .setBold {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .setBolds {
-    font-weight: 0;
+  font-weight: 0;
 }
 
 .Bold-btn {
-    border: none;
-    font-weight: 800;
-    font-size: large;
+  border: none;
+  font-weight: 800;
+  font-size: large;
 }
 
 /* .UnItalic {
@@ -327,15 +323,14 @@ html {
 } */
 
 .setItalic {
-    font-style: italic;
-
+  font-style: italic;
 }
 
 .Italic-btn {
-    border: none;
-    /* font-weight: 800; */
-    font-size: large;
-    font-style: italic;
+  border: none;
+  /* font-weight: 800; */
+  font-size: large;
+  font-style: italic;
 }
 
 /* .UnUnderline {
@@ -343,260 +338,249 @@ html {
 } */
 
 .Underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .Underline-btn {
-    border: none;
-    /* font-weight: 800; */
-    font-size: large;
-    text-decoration: underline;
+  border: none;
+  /* font-weight: 800; */
+  font-size: large;
+  text-decoration: underline;
 }
 
 .back-btns img {
-    width: 35px;
-    cursor: pointer;
+  width: 35px;
+  cursor: pointer;
 }
 
 .delete-list {
-    display: flex;
-
+  display: flex;
 }
 
 .delll h4 {
-    font-family: cursive;
-    font-size: 25px;
-    margin-left: 25px;
+  font-family: cursive;
+  font-size: 25px;
+  margin-left: 25px;
 }
 
 .del {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  /* height: 120px; */
+  border: none;
+  width: 265px;
+  height: 180px;
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
 
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-    /* height: 120px; */
-    border: none;
-    width: 265px;
-    height: 180px;
-    resize: none;
-    padding: 10px;
-    font-size: 16px;
-
-    color: #000;
+  color: #000;
 }
 
 .del-btn {
-    position: absolute;
-    bottom: 22px;
-    right: 16px;
-    z-index: 1;
+  position: absolute;
+  bottom: 22px;
+  right: 16px;
+  z-index: 1;
 }
 
 .del textarea {
-    width: 100%;
-    max-width: 300px;
-    padding: 15px;
-    border-radius: 10px;
-    position: relative;
-    height: 155px;
-    overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  height: 155px;
+  overflow: hidden;
 }
 
-
 .deleted-notes del {
-    width: max-content;
+  width: max-content;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .del-btn img {
-    width: 30px;
-    cursor: pointer;
-
+  width: 30px;
+  cursor: pointer;
 }
 
 .modal-buttons {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .modal-buttons button {
-    width: 100px;
-    padding: 10px;
-    border: none;
-    outline: none;
-    margin-top: 25px;
-    cursor: pointer;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin-top: 25px;
+  cursor: pointer;
 }
 
 .no-notes-section {
-    margin-left: 25px;
-    cursor: pointer;
+  margin-left: 25px;
+  cursor: pointer;
 }
 
 .modes {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-    cursor: pointer;
-    margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  margin-bottom: 12px;
 }
 
 .light {
-    border-right: 1px solid black;
-    padding: 1px;
-    padding-right: 4px;
+  border-right: 1px solid black;
+  padding: 1px;
+  padding-right: 4px;
 }
-.isMode{
-    background-color: #010a18;
-    color: white;
-    border-color: white;
-    color: white;
+.isMode {
+  background-color: #010a18;
+  color: white;
+  border-color: white;
+  color: white;
 }
 
 .dark {
- padding-left: 4px;
-    
+  padding-left: 4px;
 }
-.note-dark{
-    background-color: white;
-    
+.note-dark {
+  background-color: white;
 }
-.note-dark{
-    background-color:#010a18 ;
-    color: white;
+.note-dark {
+  background-color: #010a18;
+  color: white;
 }
-.nav-design{
-    border-bottom: 1px solid white;
-}
+
 .modes img {
-    width: 30px;
+  width: 30px;
 }
 
 .no-notes-section p {
-    background-color: burlywood;
-    padding: 15px;
-    width: max-content;
-    color: black;
-    font-size: large;
-    font-family: monospace;
+  background-color: burlywood;
+  padding: 15px;
+  width: max-content;
+  color: black;
+  font-size: large;
+  font-family: monospace;
 }
 
 .modal-box {
-    background-color: lightblue;
-    padding: 72px;
-    /* border-radius: 141px; */
-    font-size: 30px;
+  background-color: lightblue;
+  padding: 72px;
+  /* border-radius: 141px; */
+  font-size: 30px;
 }
 
 .login h3 {
-    text-align: center;
-    font-size: 25px;
-    border: 1px solid sandybrown;
-    padding: 8px;
-    width: fit-content;
-    color: black;
-    background-color: sandybrown;
-    cursor: pointer;
-    font-family: cursive;
+  text-align: center;
+  font-size: 25px;
+  border: 1px solid sandybrown;
+  padding: 8px;
+  width: fit-content;
+  color: black;
+  background-color: sandybrown;
+  cursor: pointer;
+  font-family: cursive;
 }
-.container{
-    min-height: 100vh;
+.container {
+  min-height: 100vh;
 }
-.logins-btn{
-    border: none;
-   
-    outline: none;
-        color: white;
-   
-    cursor: pointer;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
- 
+.logins-btn {
+  border: none;
+
+  outline: none;
+  color: white;
+
+  cursor: pointer;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
-.logins-btn button{
-     outline: none;
-    border: none;
-     font-size: 18px;
-     cursor: pointer;
-    padding: 18px;
-   
-        background-color: #000;
-    color: white;
-    border-radius: 30px;
+.logins-btn button {
+  outline: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 18px;
+
+  background-color: #000;
+  color: white;
+  border-radius: 30px;
 }
-.logins-btn p{
-       margin-bottom: 5px;
-       color: black;
+.logins-btn p {
+  margin-bottom: 5px;
+  color: black;
 }
-.nologin-btn{
-    width: 94px;
-    background: orange;
-    outline: none;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
+.nologin-btn {
+  width: 94px;
+  background: orange;
+  outline: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
 }
-.logins-btn span{
-    text-decoration: underline;
+.logins-btn span {
+  text-decoration: underline;
 }
 
-.IsUserDark{
-    background-color: white;
-    padding: 3px;
-    
+.IsUserDark {
+  background-color: white;
+  padding: 3px;
 }
 .dropdown {
-    position: relative;
-    border: 1px solid gray;
-    border-radius: 30px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    margin: 5px;
+  position: relative;
+  border: 1px solid gray;
+  border-radius: 30px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
 }
 
 .dropdown-content {
-    position: absolute;
-    top: 100%;        /* directly below dropdown */
-    right: 0;         /* align with right side if reversed */
-    display: none;
-   
-    min-width: 140px;
-    z-index: 1000;    /* makes it appear above everything */
-    padding: 8px 0;
-    box-shadow: 0 5px 16px rgba(4, 0, 0, 100);
-    border-radius: 30px;
-    background-color: white;
+  position: absolute;
+  top: 100%; 
+  right: 0; 
+  display: none;
+
+  min-width: 140px;
+  z-index: 1000; 
+  padding: 8px 0;
+  box-shadow: 0 5px 16px rgba(4, 0, 0, 100);
+  border-radius: 30px;
+  background-color: white;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .dropdown img {
-    width: 35px;
-   margin: 5px;
+  width: 35px;
+  margin: 5px;
 }
-.combine-container{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 30px;
-    background-color: white;
-    margin: 15px;
+.combine-container {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 30px;
+  background-color: white;
+  margin: 15px;
 }
 
 .combine-container.light {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; /* for light mode */
-    background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+  background-color: white;
 }
 .combine-container.dark {
-    box-shadow: none; /* remove shadow in dark mode */
-    background-color: #1c1c1c; /* or any dark background */
+  box-shadow: none; 
+  background-color: #1c1c1c; 
 }

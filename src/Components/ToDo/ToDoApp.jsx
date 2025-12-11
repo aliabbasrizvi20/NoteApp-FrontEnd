@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react";
 import "./ToDo.css";
-import profile from "../ToDo/profile.png";
-import Add from "./plus.png";
-import SearchIcon from "./search-interface-symbol.png";
-import CloseIcon from "./close-circle-svgrepo-com.svg";
-import Edit from "./pen.png";
-import Del from "./delete-svgrepo-com.svg";
-import DeleNote from "./DeletedNotes";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import pin from "./pin (1).png";
-import unpin from "./pin.png";
-import lightMode from "./day-mode.png";
-import nightMode from "./moon-and-stars.png";
+import profile from "../ToDo/Assets/profile.png";
+import Add from "../ToDo/Assets/plus.png";
+import SearchIcon from "../ToDo/Assets/search-interface-symbol.png";
+import CloseIcon from "../ToDo/Assets/close-circle-svgrepo-com.svg";
+import Edit from "../ToDo/Assets/pen.png";
+import Del from "../ToDo/Assets/delete-svgrepo-com.svg";
+import { Link } from "react-router-dom";
+import pin from "../ToDo/Assets/pin (1).png";
+import unpin from "../ToDo/Assets/pin.png";
+import lightMode from "../ToDo/Assets/day-mode.png";
+import nightMode from "../ToDo/Assets/moon-and-stars.png";
 import axiosClient from "../../api/axiosClient";
 
 export default function ToDoApp() {
-  const nav = useNavigate();
-  // const [value, setValue] = useState('');
 
   const [itemlist, setItemList] = useState([]);
   const [noteColors, setNoteColors] = useState(false);
@@ -31,12 +28,12 @@ export default function ToDoApp() {
   const [textUnderline, setTextUnderline] = useState(false);
   const [deletedNote, setDeletedNote] = useState([]);
   const [showDeletedNotes, setShowDeletedNotes] = useState(false);
-  //  const [pinNote,setPinNote]=useState(false);
+
   const [delforever, setDelForever] = useState(false);
   const [noDelNotes, setNoDelNotes] = useState(false);
   const [isMode, setIsMode] = useState("");
   //  const [isLight,setIsLight]=useState("");
-  const [pinnedList, setPinnedList] = useState([]);
+  const [pinnedList] = useState([]);
   const [noteIsLight, setNoteIsLight] = useState("");
   const [navUnderline, setNavUnderline] = useState("");
   const [userNameTheme, setUserNameTheme] = useState(false);
@@ -57,18 +54,18 @@ export default function ToDoApp() {
     if (!user) {
       localStorage.setItem("guestNotes", JSON.stringify(itemlist));
     }
-  }, [itemlist]);
+  }, [itemlist,user]);
 
   const getNotes = async () => {
     const notes = await axiosClient.get("/note");
     setItemList(notes.data.notes);
   };
   const deleteNote = async (id) => {
-    const notes = await axiosClient.delete(`note/${id}`);
+     await axiosClient.delete(`note/${id}`);
     getNotes();
   };
   const onAddNote = async (body) => {
-    const notes = await axiosClient.post("/note", body);
+   await axiosClient.post("/note", body);
     getNotes();
   };
 
@@ -174,7 +171,7 @@ export default function ToDoApp() {
   };
 
   const getNotesList = () => {
-    // console.log(itemlist, 'itemlist');
+
     const pinnedList = itemlist?.filter((item) => item.isPinned);
     const nonPinnedList = itemlist?.filter((item) => !item.isPinned);
     return [...pinnedList, ...nonPinnedList];
@@ -184,7 +181,7 @@ export default function ToDoApp() {
     setChoosenColor(itemlist[index].color);
     setNotesData(itemlist[index].text);
     setTextBold(itemlist[index].bold || false);
-    setTextItalic(itemlist[index] || false);
+    setTextItalic(itemlist[index].italic || false);
     setTextUnderline(itemlist[index].underline || false);
     setShowNotePad(true);
     setEditId(id);
@@ -213,13 +210,6 @@ export default function ToDoApp() {
     setDelForever(false);
   };
 
-  const onShowDeletedNotes = () => {
-    if (deletedNote.length === 0) {
-      setNoDelNotes(true);
-    } else {
-      setShowDeletedNotes(true);
-    }
-  };
 
   const onPinNotes = (index) => {
     setItemList((prev) => {
@@ -231,15 +221,7 @@ export default function ToDoApp() {
       updated[index] = updatedNote;
       return updated;
     });
-    // if(!itemlist[index].isPinned){
-    //     setPinnedList(prev => [...prev, itemlist[index]])
-    // } else {
-    //     setPinnedList(prev => {
-    //         let updated = [...prev];
-    //         updated.splice(index, 1);
-    //         return updated;
-    //     })
-    // }
+   
   };
   const onUnPinNotes = (index) => {
     console.log(index);
@@ -281,7 +263,7 @@ export default function ToDoApp() {
                <Link to="/login"><button>LogIn</button></Link> 
             </div> */}
       <div className={`container ${isMode}`}>
-        <div className={`nav-container ${navUnderline}`}>
+        <div className={`nav-container ${navUnderline}`} style={{backgroundColor: isMode? "black" : "whitesmoke"}}>
           <div className={`logo `}>
             <h4 style={{ color: isMode ? "white" : "black" }}>Notethat.</h4>
           </div>
@@ -304,7 +286,7 @@ export default function ToDoApp() {
           <div className="dropdown">
             <img src={profile} alt="" />
             {user ? <p>{user.name} </p> : ""}
-            <div className="dropdown-content">
+            <div className="dropdown-content" style={{backgroundColor : isMode? "black" :"white"}}>
               <div className={`logins-btn  `}>
                 {user ? (
                   <>
@@ -318,7 +300,7 @@ export default function ToDoApp() {
                     <button className="login-btn-btn">LogIn</button>
                   </Link>
                 )}
-                {/* <h3 onClick={onShowDeletedNotes}>Deleted Notes</h3> */}
+               
               </div>
               <div className={`modes ${isMode} `}>
                 <div className={`light ${isMode}`}>
@@ -338,6 +320,7 @@ export default function ToDoApp() {
               itemlist.length === 0
                 ? "none"
                 : "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+               
           }}
         >
           <div className="add-note-icon">
@@ -452,7 +435,7 @@ export default function ToDoApp() {
                 >
                   <div className="pin-btn">
                     <img
-                      src={element.isPinned ? pin : unpin}
+                      src={element.isPinned ? pin : unpin} alt="PinnedNote"
                       onClick={() => onPinNotes(index)}
                       onDoubleClick={() => onUnPinNotes(index)}
                     />
@@ -495,11 +478,11 @@ export default function ToDoApp() {
                 >
                   <div className="pin-btn">
                     <img
-                      src={element.isPinned ? pin : unpin}
+                      src={element.isPinned ? pin : unpin} alt="pinNote"
                       onClick={() => onPinNotes(index)}
                       onDoubleClick={() => onUnPinNotes(index)}
                     />
-                    {/* <button onClick={()=>onPinNotes(index)}>{element.isPinned ? 'UNPIN' : 'PIN'}</button> */}
+                   
                   </div>
                   <textarea
                     value={element.text}
@@ -510,8 +493,7 @@ export default function ToDoApp() {
                   />
 
                   <div className="note-actions">
-                    {/* <button onClick={() => onEditList(index)}>Edit</button>
-                                <button onClick={() => onDeleteList(index)}></button> */}
+                   
                     <img
                       src={Edit}
                       onClick={() => onEditList(element._id, index)}
@@ -590,7 +572,7 @@ export default function ToDoApp() {
           )}
         </div>
       </div>
-      <div className="cl">{getNotesList}</div>
+     
     </div>
   );
 }
